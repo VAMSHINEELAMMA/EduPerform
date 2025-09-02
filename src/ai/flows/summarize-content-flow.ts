@@ -40,7 +40,7 @@ const prompt = ai.definePrompt({
   name: 'summarizeContentPrompt',
   input: {schema: SummarizeContentInputSchema},
   output: {schema: SummarizeContentOutputSchema},
-  prompt: `You are an expert at summarizing complex topics into pints.
+  prompt: `You are an expert at summarizing complex topics into key pints.
   Analyze the following content and extract the most important key pints.
   Present the key pints as a concise, easy-to-read bulleted list.
 
