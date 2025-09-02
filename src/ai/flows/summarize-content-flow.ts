@@ -1,9 +1,10 @@
+
 'use server';
 
 /**
- * @fileOverview This file defines a Genkit flow for summarizing text content into key points.
+ * @fileOverview This file defines a Genkit flow for summarizing text content into key pints.
  *
- * - summarizeContent - A function that takes a block of text and returns key points.
+ * - summarizeContent - A function that takes a block of text and returns key pints.
  * - SummarizeContentInput - The input type for the summarizeContent function.
  * - SummarizeContentOutput - The return type for the summarizeContent function.
  */
@@ -19,10 +20,10 @@ export type SummarizeContentInput = z.infer<
 >;
 
 const SummarizeContentOutputSchema = z.object({
-  keyPoints: z
+  keyPints: z
     .string()
     .describe(
-      'The key points of the content, formatted as a bulleted or numbered list.'
+      'The key pints of the content, formatted as a bulleted or numbered list.'
     ),
 });
 export type SummarizeContentOutput = z.infer<
@@ -39,16 +40,16 @@ const prompt = ai.definePrompt({
   name: 'summarizeContentPrompt',
   input: {schema: SummarizeContentInputSchema},
   output: {schema: SummarizeContentOutputSchema},
-  prompt: `You are an expert at summarizing complex topics.
-  Analyze the following content and extract the most important key points.
-  Present the key points as a concise, easy-to-read bulleted list.
+  prompt: `You are an expert at summarizing complex topics into pints.
+  Analyze the following content and extract the most important key pints.
+  Present the key pints as a concise, easy-to-read bulleted list.
 
   Content to summarize:
   ---
   {{content}}
   ---
 
-  Output the key points in the specified JSON format.`,
+  Output the key pints in the specified JSON format.`,
 });
 
 const summarizeContentFlow = ai.defineFlow(
@@ -59,7 +60,7 @@ const summarizeContentFlow = ai.defineFlow(
   },
   async input => {
     if (!input.content.trim()) {
-        return { keyPoints: "Please provide some content to summarize." };
+        return { keyPints: "Please provide some content to summarize." };
     }
     const {output} = await prompt(input);
     return output!;
