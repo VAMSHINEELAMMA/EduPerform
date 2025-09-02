@@ -63,7 +63,8 @@ export function PerformanceForm({ predictStudentPerformance }: PerformanceFormPr
         feedbackScore: 90, // Keep feedback and efficiency as adjustable params
         efficiency: 85,
     });
-  }, [reset]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   const formValues = watch();
